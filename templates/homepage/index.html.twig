@@ -3,8 +3,11 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
-<div>
-    <a class="link" href="{{path('admin_page')}}">Admin</a>
+<main id="home">
+    <header>
+        <a class="link" href="{{path('app_admin_login')}}">Admin</a>
+    </header>
+
     <h1>Bienvenue chez BaNk 👋</h1>
 
     <div class="container-button-home">
@@ -16,5 +19,5 @@
     </div>
     </div>
 
-</div>
+</main>
 {% endblock %}

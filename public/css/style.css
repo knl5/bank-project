@@ -1,24 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap');
+
 :root {
     --main-color: #7A61D8;
     --secondary-color: #FDBEA1;
     --white-color: #DDE2E7;
     --black-color: #000000;
+
+    --font: 'Inter', sans-serif;
+
+    --transition: 300ms linear;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100vw;
+    height: 100%;
 }
 
 body {
     background-color: var(--white-color);
+    font-family: var(--font);
+    margin: 0 50px;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    justify-content: right;
+    box-sizing: border-box;
+}
+
+#home {
+    width: 100%;
+    text-align: center;
 }
 
 h1 {
     color: var(--main-color);
+    margin-bottom: 50px;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin: 40px 0;
+    color: var(--main-color);
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 .primary-button {
-    width: 150px;
+    width: 165px;
     height: 35px;
     background-color: var(--main-color);
-    color: var(--secondary-color);   
+    color: var(--white-color);   
     border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.primary-button:hover {
+    background-color: var(--main-color);
+    opacity: 0.8;
+    transition: var(--transition);
 }
 
 a {
@@ -26,10 +78,39 @@ a {
     text-decoration: underline;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 100px auto;
+}
+
+input {
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin-bottom: 25px;
+}
+
+label {
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.sub-text--form {
+    font-size: 14px;
+}
+
+.strong-link {
+    font-weight: 700;
+}
+
 .container-button-home {
-    width: 400px;
+    width: 30%;
     display: flex;
     justify-content: space-between;
+    margin: auto;
 }
 
 .primary-button a {
@@ -39,5 +120,5 @@ a {
     height: 100%;
     display: block;
     text-align: center;
-    padding-top: 4px;
+    padding-top: 7px;
 }

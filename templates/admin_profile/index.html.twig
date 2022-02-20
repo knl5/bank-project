@@ -3,7 +3,9 @@
 {% block title %}Hello AdminProfileController!{% endblock %}
 
 {% block body %}
-<a href="{{ path('admin_logout')}}">Logout</a>
+<header>
+    <a href="{{ path('admin_logout')}}">Logout</a>
+</header>
 
 <div class="example-wrapper">
     <p>Prénom : {{ app.user.firstname }}</p>

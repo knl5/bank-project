@@ -14,7 +14,7 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h2>Connexion administrateur</h2>
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     <label for="inputPassword">Password</label>
@@ -23,6 +23,9 @@
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
+
+    <div>
+    <p class="sub-text--form">Vous êtes administrateur et vous n'avez pas encore de compte ? <a class="strong-link" href="{{path('app_admin_register')}}">Créer un compte</a></p>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -35,7 +38,7 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="primary-button" type="submit">
         Sign in
     </button>
 </form>
