@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface
 {
     #[ORM\Id]
@@ -38,6 +40,9 @@ class User implements UserInterface
 
     #[ORM\Column(type: 'integer')]
     private $postalcode;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $password;
 
     public function getId(): ?int
     {
@@ -162,6 +167,18 @@ class User implements UserInterface
     public function setPostalcode(int $postalcode): self
     {
         $this->postalcode = $postalcode;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

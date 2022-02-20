@@ -22,13 +22,21 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        admin:
+            pattern: ^/admin/
+            logout:
+                path: admin_logout
+            custom_authenticator:
+                - App\Security\AdminLoginAuthenticator    
         main:
             lazy: true
             provider: app_user_provider
             # custom_authenticator: App\Security\AppCustomAuthenticator
             logout:
-                path: admin_logout
-            custom_authenticator: App\Security\AdminLoginAuthenticator
+                path: app_user_logout
+            custom_authenticator:
+                - App\Security\UserLoginAuthenticator
+
                 # where to redirect after logout
                 # target: app_any_route
 

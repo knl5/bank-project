@@ -96,6 +96,7 @@ input {
 label {
     margin-bottom: 10px;
     padding-left: 20px;
+    text-align: left;
 }
 
 .sub-text--form {
