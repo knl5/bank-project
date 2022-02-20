@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace administrateur{% endblock %}
+
+{% block body %}
+<div>
+    <div class="primary-button">
+        <a href="{{path('app_admin_login')}}">Se connecter</a>
+    </div>
+    <p>Vous êtes administrateur et vous n'avez pas encore de compte ? <a href="{{path('app_admin_register')}}">Créer un compte</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminProfileController!{% endblock %}
+
+{% block body %}
+<a href="{{ path('admin_logout')}}">Logout</a>
+
+<div class="example-wrapper">
+    <p>Prénom : {{ app.user.firstname }}</p>
+    <p>Nom : {{ app.user.lastname }}</p>
+    <p>Email : {{ app.user.email }}</p>
+</div>
+{% endblock %}
