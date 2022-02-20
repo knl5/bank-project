@@ -82,7 +82,12 @@ form {
     display: flex;
     flex-direction: column;
     width: 30%;
-    margin: 100px auto;
+    margin: 20px auto;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
 }
 
 input {

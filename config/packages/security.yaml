@@ -31,7 +31,6 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            # custom_authenticator: App\Security\AppCustomAuthenticator
             logout:
                 path: app_user_logout
             custom_authenticator:
@@ -50,7 +49,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin-profile, roles: ROLE_USER }
-        # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/user-register, roles: ROLE_USER }
 
 when@test:
     security:

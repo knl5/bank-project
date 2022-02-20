@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Créer un compte administrateur</h1>
+    <h2>Créer un compte administrateur</h2>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.firstname) }}
@@ -14,6 +14,6 @@
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="primary-button">Créer un compte</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

@@ -31,11 +31,11 @@
            value="{{ csrf_token('authenticate') }}"
     >
     <button class="primary-button" type="submit">
-        Sign in
+        Se connecter
     </button>
-    <p>
-        Vous êtes administrateur et vous n'avez pas encore de compte ?
-        <a href="{{path('app_user_register')}}">Créer un compte</a>
+    <p class="sub-text--form">
+        Vous n'avez pas encore de compte ?
+        <a class="strong-link" href="{{path('app_user_register')}}">Créer un compte</a>
     </p>
 </form>
 
