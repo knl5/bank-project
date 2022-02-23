@@ -12,6 +12,7 @@ class HomepageController extends AbstractController
     #[Route('/homepage', name: 'homepage')]
     public function index(UserInterface $user): Response
     {
+        dump($user);die;
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
         ]);
