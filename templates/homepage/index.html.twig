@@ -1,23 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %}Bank
+{% endblock %}
 
 {% block body %}
-<header>
-        {% if app.user %}
-        <div class="mb-3">
-            Hello {{ app.user.firstname }}, <a class="link" href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-</header>
+	<header>
+		{% if app.user %}
+			<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
+			<div class="mb-3">
+				<a class="link" href="{{ path('account') }}">Mon compte</a>
+				<a class="link" href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
+	</header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/kanellelorent/Desktop/Cours_M1/php-project/bankprojectv2/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/kanellelorent/Desktop/Cours_M1/php-project/bankprojectv2/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<main>
+		{% if app.user %}
+			<h2>Hello
+				{{ app.user.firstname }}! ✅
+				<br>
+				Bienvenue sur votre compte BaNk
+			</h2>
+		{% endif %}
+	</main>
 {% endblock %}

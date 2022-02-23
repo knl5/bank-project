@@ -128,3 +128,19 @@ label {
     text-align: center;
     padding-top: 7px;
 }
+
+.link {
+    margin: 0 10px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    color: var(--main-color);
+}
+
+.back-button:hover, .link:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

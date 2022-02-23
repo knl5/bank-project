@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+<header>
+    <button class="back-button" onClick="window.history.back();" type="button">Go back</button>
+</header>
+
+<main>
+    <h2>Mes informations personelles</h2>
+
+    <ul>
+        <li>Nom: {{ app.user.lastname }}</li>
+        <li>Prénom: {{ app.user.firstname }}</li>
+        <li>Email: {{ app.user.email }}</li>
+        <li>Adress: {{ app.user.adress }}</li>
+        <li>Ville: {{ app.user.city }}</li>
+        <li>Code Postal: {{ app.user.postalcode }}</li>
+        <li>Pays: {{ app.user.country }}</li>
+    </ul>
+</main>
+{% endblock %}
