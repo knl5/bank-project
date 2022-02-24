@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CreateBankAccountController!
+{% endblock %}
+
+{% block body %}
+	<header>
+		<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
+	</header>
+
+	<main>
+		<h2>{{bankAccount.accountName}}</h2>
+		<div class="card-container">
+			<div class="card-header">
+				<h3>Votre solde</h3>
+				<p class="solde">
+					<strong>
+						{{bankAccount.initialAmount}}€
+					</strong>
+				</p>
+			</div>
+		</main>
+	{% endblock %}

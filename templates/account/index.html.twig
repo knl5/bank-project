@@ -29,16 +29,18 @@
 		</ul>
 
 		<h2>Mes comptes</h2>
+		<div class="container-list-accounts">
 		{% for bank_account in bank_accounts %}
-			<div class="container-list-accounts">
+			<div class="list-accounts">
 				<h4>Nom du compte</h4>
 				<p>{{bank_account.accountName}}</p>
 				<h4>Montant du compte</h4>
-				<p>{{bank_account.initialAmount}}</p>
+				<p>{{bank_account.initialAmount}}€</p>
 				<div class="primary-button btn-account">
-					<a href="{{ path('homepage') }}">Voir le compte</a>
+					<a href="{{ path('bank_account', {"id": bank_account.id}) }}">Voir le compte</a>
 				</div>
 			</div>
 		{% endfor %}
+		<div>
 	</main>
 {% endblock %}
