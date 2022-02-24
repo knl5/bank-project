@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CreateBankAccountController!{% endblock %}
+
+{% block body %}
+<header>
+    <button class="back-button" onClick="window.history.back();" type="button">Go back</button>
+</header>
+
+    <h2>Pour créer un nouveau compte bancaire, veuillez remplir le formulaire</h2>
+
+    {{ form_start(form) }}
+        {{ form_row(form.account_name) }}
+        {{ form_row(form.initialAmount) }}
+
+
+        <button type="submit" class="primary-button">Créer un compte</button>
+    {{ form_end(form) }}
+{% endblock %}

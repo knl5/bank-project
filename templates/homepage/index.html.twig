@@ -10,6 +10,7 @@
 			<div class="mb-3">
 				<a class="link" href="{{ path('account') }}">Mon compte</a>
 				<a class="link" href="{{ path('app_logout') }}">Logout</a>
+				<a class="link" href="{{ path('create_bank_account') }}">Créer un compte</a>
 			</div>
 		{% endif %}
 	</header>
@@ -36,7 +37,7 @@
 				<ul class="transfers-list">
 					{% for amount in amounts %}
 						<li class="transfer">
-                            <p>Virement éffectué</p>
+                            <p>Virement effectué</p>
 							{{ amount.montant }}€
 						</li>
 					{% endfor %}

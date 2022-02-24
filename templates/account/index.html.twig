@@ -19,5 +19,12 @@
         <li>Code Postal: {{ app.user.postalcode }}</li>
         <li>Pays: {{ app.user.country }}</li>
     </ul>
+
+
+    {% for bank_account in bank_accounts %}
+						<div class="">
+                            <p>{{bank_account.accountName}}</p>
+						</div>
+					{% endfor %}
 </main>
 {% endblock %}
