@@ -34,13 +34,17 @@
 - A readme.md for the installation: 1pts
 
 
+#### To connect Database we use postgres & docker :
+- ``docker-compose up`` 
+- the database will be on port 18080
+- in ``./.env`` this line should be like this => ``DATABASE_URL="postgresql://bank:bank@127.0.0.1:5432/bankv2?serverVersion=13&charset=utf8``
+
 
 ### Install project : 
 ##### (you need to have Symfony on your computer to run it)
-- Install the project with "git clone"
-- Run "composer install" in your terminal
-- Database create and manag with Docker
-- To run the project "symfony start:server" or "symfony serve"
+- Install the project with ``git clone``
+- Run ``composer install`` in your terminal
+- To run the project ``symfony start:server`` or ``symfony serve``
 
 
 ##### Symfony website made by @knl5, Kanelle & @keshiamukenge, Keshia for PHP class 2022

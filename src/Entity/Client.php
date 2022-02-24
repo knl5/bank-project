@@ -47,8 +47,9 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
-    #[ORM\OneToMany(mappedBy: 'userId', targetEntity: Account::class)]
+    #[ORM\OneToMany(mappedBy: 'client', targetEntity: Account::class)]
     private $accounts;
+
 
     public function __construct()
     {
@@ -209,7 +210,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->accounts->contains($account)) {
             $this->accounts[] = $account;
-            $account->setUserId($this);
+            $account->setClient($this);
         }
 
         return $this;
@@ -219,8 +220,8 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->accounts->removeElement($account)) {
             // set the owning side to null (unless already changed)
-            if ($account->getUserId() === $this) {
-                $account->setUserId(null);
+            if ($account->getClient() === $this) {
+                $account->setClient(null);
             }
         }
 

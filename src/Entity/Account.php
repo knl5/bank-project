@@ -25,9 +25,9 @@ class Account
     #[ORM\Column(type: 'date', nullable: true)]
     private $dateofbirth;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'accounts')]
-    private $userId;
-
+    #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'accounts')]
+    private $client;
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -82,14 +82,14 @@ class Account
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getClient(): ?Client
     {
-        return $this->userId;
+        return $this->client;
     }
 
-    public function setUserId(?User $userId): self
+    public function setClient(?Client $client): self
     {
-        $this->userId = $userId;
+        $this->client = $client;
 
         return $this;
     }
