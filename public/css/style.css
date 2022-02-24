@@ -115,6 +115,7 @@ label {
     margin-bottom: 10px;
     padding-left: 20px;
     text-align: left;
+    color: var(--main-color);
 }
 
 .sub-text--form {
