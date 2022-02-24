@@ -6,12 +6,14 @@
 {% block body %}
 	<header>
 		{% if app.user %}
-			<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
-			<div class="mb-3">
+			<div>
+				<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
+			</div>
+			<div>
 				<a class="link" href="{{ path('account') }}">Mon compte</a>
 				<a class="link" href="{{ path('create_bank_account') }}">Créer un compte</a>
 				<a class="link" href="{{ path('app_logout') }}">Logout</a>
-				
+
 			</div>
 		{% endif %}
 	</header>
@@ -28,17 +30,17 @@
 					<h3>Votre solde</h3>
 					<p class="solde">
 						<strong>
-                        {% for amount in amounts %}
-                        {% set total = total+ amount.montant %}
-                        {% endfor %}
-                        {{total}}€
-                        </strong>
+							{% for amount in amounts %}
+								{% set total = total+ amount.montant %}
+							{% endfor %}
+							{{total}}€
+						</strong>
 					</p>
 				</div>
 				<ul class="transfers-list">
 					{% for amount in amounts %}
 						<li class="transfer">
-                            <p>Virement effectué</p>
+							<p>Virement effectué</p>
 							{{ amount.montant }}€
 						</li>
 					{% endfor %}
