@@ -23,7 +23,7 @@
 
     {% for bank_account in bank_accounts %}
 						<div class="">
-                            <p>{{bank_account.accountName}}</p>
+                            <a class="link" href="{{ path('homepage') }}"> <p>{{bank_account.accountName}}</p> </a>
 						</div>
 					{% endfor %}
 </main>
