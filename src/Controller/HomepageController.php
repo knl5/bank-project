@@ -7,6 +7,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class HomepageController extends AbstractController
 {
@@ -14,7 +15,6 @@ class HomepageController extends AbstractController
     public function index(AddMoneyRepository $addMoneyRepository): Response
     {
         $total = 0;
-
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
             'amounts' => $addMoneyRepository->findAll(),
