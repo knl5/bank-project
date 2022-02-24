@@ -17,13 +17,16 @@
 		{% endif %}
 	</header>
 
-	<h2>Pour créer un nouveau compte bancaire, veuillez remplir le formulaire</h2>
-
-	{{ form_start(form) }}
-	{{ form_row(form.account_name) }}
-	{{ form_row(form.initialAmount) }}
-
-
-	<button type="submit" class="primary-button">Créer un compte</button>
-	{{ form_end(form) }}
-{% endblock %}
+	<main>
+		<h2>{{bankAccount.accountName}}</h2>
+		<div class="card-container">
+			<div class="card-header">
+				<h3>Votre solde</h3>
+				<p class="solde">
+					<strong>
+						{{bankAccount.initialAmount}}€
+					</strong>
+				</p>
+			</div>
+		</main>
+	{% endblock %}

@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AddMoneyController!{% endblock %}
+{% block title %}Hello AddMoneyController!
+{% endblock %}
 
 {% block body %}
-<div>
-    {{ form_start(form) }}
-        {{ form_row(form.montant) }}
+	<header>
+		{% if app.user %}
+			<div>
+				<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
+			</div>
+			<div>
+				<a class="link" href="{{ path('account') }}">Mon compte</a>
+				<a class="link" href="{{ path('create_bank_account') }}">Créer un compte</a>
+				<a class="link" href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
+	</header>
 
-        <button type="submit" class="primary-button">Ajouter</button>
-    {{ form_end(form) }}
-</div>
+	<main>
+		{{ form_start(form) }}
+		{{ form_row(form.montant) }}
+
+		<button type="submit" class="primary-button">Ajouter</button>
+		{{ form_end(form) }}
+	</main>
 {% endblock %}
