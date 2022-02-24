@@ -25,19 +25,31 @@
 				<div class="card-header">
 					<h3>Votre solde</h3>
 					<p class="solde">
-						<strong>0,00€</strong>
+						<strong>
+                        {% for amount in amounts %}
+                        {% set total = total+ amount.montant %}
+                        {% endfor %}
+                        {{total}}€
+                        </strong>
 					</p>
 				</div>
-				<ul></ul>
+				<ul class="transfers-list">
+					{% for amount in amounts %}
+						<li class="transfer">
+                            <p>Virement éffectué</p>
+							{{ amount.montant }}€
+						</li>
+					{% endfor %}
+				</ul>
 			</div>
-            <div class="container-home-button">
-					<div class="primary-button btn-home">
-						<a href="{{ path('add_money') }}">Ajouter de l'argent</a>
-					</div>
-					<div class="primary-button btn-home">
-						<a href="#">Effectuer un virement</a>
-					</div>
+			<div class="container-home-button">
+				<div class="primary-button btn-home">
+					<a href="{{ path('add_money') }}">Ajouter de l'argent</a>
 				</div>
+				<div class="primary-button btn-home">
+					<a href="#">Effectuer un virement</a>
+				</div>
+			</div>
 		{% endif %}
 	</main>
 {% endblock %}

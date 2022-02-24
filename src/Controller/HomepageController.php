@@ -2,21 +2,23 @@
 
 namespace App\Controller;
 
+use App\Repository\AddMoneyRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\AddMoney;
 
 class HomepageController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
-    public function index(): Response
+    public function index(AddMoneyRepository $addMoneyRepository): Response
     {
-        $amount = AddMoney::class;
+        $total = 0;
 
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
-            'amount' => $amount,
+            'amounts' => $addMoneyRepository->findAll(),
+            'total' => $total,
         ]);
     }
 }
