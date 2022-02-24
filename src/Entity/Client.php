@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
+use App\Repository\ClientRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-#[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\Table(name: '`user`')]
+#[ORM\Entity(repositoryClass: ClientRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class Client implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,7 +27,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    private $firstname;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $lastname;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $adress;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $city;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $postalcode;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $country;
 
     public function getId(): ?int
     {
@@ -100,14 +114,74 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->name;
+        return $this->firstname;
     }
 
-    public function setName(string $name): self
+    public function setFirstname(string $firstname): self
     {
-        $this->name = $name;
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getPostalcode(): ?string
+    {
+        return $this->postalcode;
+    }
+
+    public function setPostalcode(string $postalcode): self
+    {
+        $this->postalcode = $postalcode;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }

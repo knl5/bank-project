@@ -1,20 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %}Bank
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<header>
+		{% if app.user %}
+			<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
+			<div class="mb-3">
+				<a class="link" href="{{ path('account') }}">Mon compte</a>
+				<a class="link" href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
+	</header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/kanellelorent/Desktop/Cours_M1/php-project/bankprojectv2/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/kanellelorent/Desktop/Cours_M1/php-project/bankprojectv2/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<main>
+		{% if app.user %}
+			<h2>Hello
+				{{ app.user.firstname }}! ✅
+				<br>
+				Bienvenue sur votre compte BaNk
+			</h2>
+			<div class="card-container">
+				<div class="card-header">
+					<h3>Votre solde</h3>
+					<p class="solde">
+						<strong>
+                        {% for amount in amounts %}
+                        {% set total = total+ amount.montant %}
+                        {% endfor %}
+                        {{total}}€
+                        </strong>
+					</p>
+				</div>
+				<ul class="transfers-list">
+					{% for amount in amounts %}
+						<li class="transfer">
+                            <p>Virement éffectué</p>
+							{{ amount.montant }}€
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="container-home-button">
+				<div class="primary-button btn-home">
+					<a href="{{ path('add_money') }}">Ajouter de l'argent</a>
+				</div>
+				<div class="primary-button btn-home">
+					<a href="#">Effectuer un virement</a>
+				</div>
+			</div>
+		{% endif %}
+	</main>
 {% endblock %}
