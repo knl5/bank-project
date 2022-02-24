@@ -107,6 +107,8 @@ input {
     border-radius: 20px;
     padding: 5px 20px;
     margin-bottom: 25px;
+    background-color: white;
+    color: var(--main-color);
 }
 
 label {

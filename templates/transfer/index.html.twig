@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TransferController!{% endblock %}
+
+{% block body %}
+<main>
+    {{ form_start(form) }}
+        {{ form_row(form.amount) }}
+
+        <button type="submit" class="primary-button">Effectuer le virement</button>
+    {{ form_end(form) }}
+</main>
+{% endblock %}
