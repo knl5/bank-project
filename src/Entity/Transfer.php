@@ -5,21 +5,11 @@ namespace App\Entity;
 use App\Repository\TransferRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: TransferRepository::class)]
 class Transfer
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
     private $id;
-
-    #[ORM\Column(type: 'float')]
     private $amount;
-
-    #[ORM\Column(type: 'string', length: 255)]
-    private $transmitter;
-
-    #[ORM\Column(type: 'string', length: 255)]
+    private Account $transmitter;
     private $receiver;
 
     public function getId(): ?int
@@ -39,12 +29,12 @@ class Transfer
         return $this;
     }
 
-    public function getTransmitter(): ?string
+    public function getTransmitter(): ?Account
     {
         return $this->transmitter;
     }
 
-    public function setTransmitter(string $transmitter): self
+    public function setTransmitter(Account $transmitter): self
     {
         $this->transmitter = $transmitter;
 

@@ -43,9 +43,9 @@
 		{% for bank_account in bank_accounts %}
 			<div class="list-accounts">
 				<h4>Nom du compte</h4>
-				<p>{{bank_account.accountName}}</p>
+				<p>{{bank_account.name}}</p>
 				<h4>Montant du compte</h4>
-				<p>{{bank_account.initialAmount}}€</p>
+				<p>{{bank_account.amount}}€</p>
 				<div class="primary-button btn-account">
 					<a href="{{ path('bank_account', {"id": bank_account.id}) }}">Voir le compte</a>
 				</div>

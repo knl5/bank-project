@@ -13,10 +13,6 @@ class AccountType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('RIB')
-            ->add('amount')
-            ->add('dateofbirth')
-            ->add('userId')
         ;
     }
 
