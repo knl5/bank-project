@@ -31,7 +31,8 @@ class CreateBankAccountController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $bank_account = $form->getData();
-            $bank_account->setRIB("lk<mqkermjzerjmazekjrl");
+            $set_rib = rand (0,1000);
+            $bank_account->setRIB($set_rib);
             $bank_account->setClient($user);
             $bank_account->setAmount(0);
             $entityManager->persist($bank_account);
