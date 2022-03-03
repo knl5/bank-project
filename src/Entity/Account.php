@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AccountRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AccountRepository::class)]
@@ -22,11 +24,16 @@ class Account
     #[ORM\Column(type: 'integer')]
     private $amount;
 
-    #[ORM\Column(type: 'date', nullable: true)]
-    private $dateofbirth;
-
     #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'accounts')]
     private $client;
+
+    #[ORM\OneToMany(mappedBy: 'accounts', targetEntity: AddMoney::class)]
+    private $addMoney;
+
+    public function __construct()
+    {
+        $this->addMoney = new ArrayCollection();
+    }
     
     public function getId(): ?int
     {
@@ -69,19 +76,6 @@ class Account
         return $this;
     }
 
-
-    public function getDateofbirth(): ?\DateTimeInterface
-    {
-        return $this->dateofbirth;
-    }
-
-    public function setDateofbirth(?\DateTimeInterface $dateofbirth): self
-    {
-        $this->dateofbirth = $dateofbirth;
-
-        return $this;
-    }
-
     public function getClient(): ?Client
     {
         return $this->client;
@@ -98,4 +92,5 @@ class Account
     {
         return $this->getName();
     }
+
 }

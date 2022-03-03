@@ -19,15 +19,26 @@
 	</header>
 
 	<main>
-		<h2>{{bankAccount.accountName}}</h2>
+		
 		<div class="card-container">
 			<div class="card-header">
 				<h3>Votre solde</h3>
 				<p class="solde">
 					<strong>
-						{{bankAccount.initialAmount}}€
+					<p></p>
+					
+					
 					</strong>
 				</p>
 			</div>
+			
 		</main>
+		<div class="container-home-button">
+				<div class="primary-button btn-home">
+					<a href="{{ path('add_money') }}">Ajouter de l'argent</a>
+				</div>
+				<div class="primary-button btn-home">
+					<a href="{{ path('transfer') }}">Effectuer un virement</a>
+				</div>
+		</div>
 	{% endblock %}
