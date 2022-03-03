@@ -3,6 +3,21 @@
 {% block title %}Hello TransferController!{% endblock %}
 
 {% block body %}
+<header>
+		{% if app.user %}
+			<div>
+				<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
+			</div>
+			<div>
+                <a class="link" href="{{ path('homepage') }}">Accueil</a>
+				<a class="link" href="{{ path('account') }}">Mon compte</a>
+				<a class="link" href="{{ path('create_bank_account') }}">Créer un compte</a>
+				<a class="link" href="{{ path('app_logout') }}">Logout</a>
+
+			</div>
+		{% endif %}
+	</header>
+
 <main>
     {{ form_start(form) }}
         {{ form_row(form.amount) }}

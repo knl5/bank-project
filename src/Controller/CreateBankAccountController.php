@@ -12,6 +12,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CreateBankAccountController extends AbstractController
 {
+    #[Route('/{id}/bank_account', name: 'bank_account')]
+    public function showAccount(BankAccount $bankAccount): Response
+    {
+        return $this->render("create_bank_account/bank_account.html.twig", [
+            "bankAccount" => $bankAccount,
+        ]);
+    }
+
     #[Route('/create/bank/account', name: 'create_bank_account')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {

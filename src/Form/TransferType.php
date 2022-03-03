@@ -16,6 +16,12 @@ class TransferType extends AbstractType
             ->add('amount', NumberType::class, [
                 'required'   => true,
             ])
+            ->add('transmitter', NumberType::class, [
+                'label' => 'Débiteur'
+            ])
+            ->add('receiver', NumberType::class, [
+                'label' => 'receveur'
+            ])
         ;
     }
 

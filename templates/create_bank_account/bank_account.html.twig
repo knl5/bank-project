@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AddMoneyController!
+{% block title %}Hello CreateBankAccountController!
 {% endblock %}
 
 {% block body %}
@@ -19,10 +19,15 @@
 	</header>
 
 	<main>
-		{{ form_start(form) }}
-		{{ form_row(form.montant) }}
-
-		<button type="submit" class="primary-button">Ajouter</button>
-		{{ form_end(form) }}
-	</main>
-{% endblock %}
+		<h2>{{bankAccount.accountName}}</h2>
+		<div class="card-container">
+			<div class="card-header">
+				<h3>Votre solde</h3>
+				<p class="solde">
+					<strong>
+						{{bankAccount.initialAmount}}€
+					</strong>
+				</p>
+			</div>
+		</main>
+	{% endblock %}

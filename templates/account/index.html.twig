@@ -1,30 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccountController!{% endblock %}
+{% block title %}Hello AccountController!
+{% endblock %}
 
 {% block body %}
-<header>
-    <button class="back-button" onClick="window.history.back();" type="button">Go back</button>
-</header>
+	<header>
+		{% if app.user %}
+			<div>
+				<button class="back-button" onclick="window.history.back();" type="button">Go back</button>
+			</div>
+			<div>
+                <a class="link" href="{{ path('homepage') }}">Accueil</a>
+				<a class="link" href="{{ path('account') }}">Mon compte</a>
+				<a class="link" href="{{ path('create_bank_account') }}">Créer un compte</a>
+				<a class="link" href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
+	</header>
 
-<main>
-    <h2>Mes informations personelles</h2>
+	<main>
+		<h2>Mes informations personelles</h2>
 
-    <ul>
-        <li>Nom: {{ app.user.lastname }}</li>
-        <li>Prénom: {{ app.user.firstname }}</li>
-        <li>Email: {{ app.user.email }}</li>
-        <li>Adress: {{ app.user.adress }}</li>
-        <li>Ville: {{ app.user.city }}</li>
-        <li>Code Postal: {{ app.user.postalcode }}</li>
-        <li>Pays: {{ app.user.country }}</li>
-    </ul>
+		<ul>
+			<li>Nom:
+				{{ app.user.lastname }}</li>
+			<li>Prénom:
+				{{ app.user.firstname }}</li>
+			<li>Email:
+				{{ app.user.email }}</li>
+			<li>Adress:
+				{{ app.user.adress }}</li>
+			<li>Ville:
+				{{ app.user.city }}</li>
+			<li>Code Postal:
+				{{ app.user.postalcode }}</li>
+			<li>Pays:
+				{{ app.user.country }}</li>
+		</ul>
 
-
-    {% for bank_account in bank_accounts %}
-						<div class="">
-                            <a class="link" href="{{ path('homepage') }}"> <p>{{bank_account.accountName}}</p> </a>
-						</div>
-					{% endfor %}
-</main>
+		<h2>Mes comptes</h2>
+		<div class="container-list-accounts">
+		{% for bank_account in bank_accounts %}
+			<div class="list-accounts">
+				<h4>Nom du compte</h4>
+				<p>{{bank_account.accountName}}</p>
+				<h4>Montant du compte</h4>
+				<p>{{bank_account.initialAmount}}€</p>
+				<div class="primary-button btn-account">
+					<a href="{{ path('bank_account', {"id": bank_account.id}) }}">Voir le compte</a>
+				</div>
+			</div>
+		{% endfor %}
+		<div>
+	</main>
 {% endblock %}
